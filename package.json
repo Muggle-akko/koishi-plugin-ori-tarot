@@ -8,7 +8,14 @@
     "lib",
     "dist"
   ],
+  "contributors": [
+    "LYC <yuchenliao3@gmail.com>"
+  ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuChenLiao/ba-tarot.git"
+  },
   "keywords": [
     "chatbot",
     "koishi",
