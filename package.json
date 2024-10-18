@@ -1,25 +1,24 @@
 {
-  "name": "koishi-plugin-ba-tarot",
+  "name": "@q78kg/koishi-plugin-ba-tarot",
   "description": "ba塔罗牌抽取",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
     "lib",
     "dist"
   ],
-  "contributors": [
-    "LYC <yuchenliao3@gmail.com>"
-  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YuChenLiao/ba-tarot.git"
+    "url": "git+https://github.com/Hoshino-Yumetsuki/koishi-plugin-ba-tarot.git"
   },
   "keywords": [
     "chatbot",
     "koishi",
-    "plugin"
+    "plugin",
+    "ba",
+    "tarot"
   ],
   "peerDependencies": {
     "koishi": "^4.17.2"
