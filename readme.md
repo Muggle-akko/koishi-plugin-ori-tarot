@@ -1,5 +1,5 @@
-# @q78kg/koishi-plugin-ba-tarot
+# koishi-plugin-bili-tarot
 
-[![npm](https://img.shields.io/npm/v/@q78kg/koishi-plugin-ba-tarot?style=flat-square)](https://www.npmjs.com/package/@q78kg/koishi-plugin-ba-tarot)
+[![npm](https://img.shields.io/npm/v/koishi-plugin-bili-tarot?style=flat-square)](https://www.npmjs.com/package/koishi-plugin-bili-tarot)
 
-ba塔罗牌抽取（本地图片）
+Bilibili 塔罗牌抽取

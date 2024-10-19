@@ -1,7 +1,7 @@
 {
-  "name": "@q78kg/koishi-plugin-ba-tarot",
-  "description": "ba塔罗牌抽取",
-  "version": "1.0.3",
+  "name": "koishi-plugin-bili-tarot",
+  "description": "Bilibili 塔罗牌抽取",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -11,13 +11,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hoshino-Yumetsuki/koishi-plugin-ba-tarot.git"
+    "url": "git+https://github.com/Hoshino-Yumetsuki/koishi-plugin-bili-tarot.git"
   },
   "keywords": [
     "chatbot",
     "koishi",
     "plugin",
-    "ba",
+    "bili",
     "tarot"
   ],
   "peerDependencies": {
