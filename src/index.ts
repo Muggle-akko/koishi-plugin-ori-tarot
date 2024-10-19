@@ -18,7 +18,7 @@ export function apply(ctx: Context) {
     session.send(`看看
       ${h("at", { id: session.userId })}
       抽到了什么：
-      ${h.image(card.picBuffer, 'image/avif')}
+      ${h.image(card.picBuffer, 'image/webp')}
       ${card.name}（${location ? "正位" : "逆位"}）：
       ${h("br")}${location ? card.upText : card.reversedText}`);
   });
