@@ -1,19 +1,11 @@
 import path from 'path';
-import fs from 'node:fs'
+import fs from 'node:fs/promises';
 
 // 导入 JSON 文件
-import torotNames from './assets/name.json';
+import tarotNames from './assets/name.json';
 import upTexts from './assets/upText.json';
 import reversedTexts from './assets/reversedText.json';
 import tarotImgs from './assets/picUrl.json';
-
-// 导入图片文件
-const tarotImages = Object.fromEntries(
-  Object.entries(tarotImgs).map(([key, value]) => [
-    key,
-    require(`${path.join(__dirname, value)}`)
-  ])
-);
 
 export interface ITarot {
   /** 图片 Buffer */
@@ -26,20 +18,20 @@ export interface ITarot {
   name: string;
 }
 
-/** 拼装塔罗牌数据 */
-const tarotData = async (): Promise<ITarot[]> => {
-  const keys = Object.keys(torotNames);
+let cachedTarotData: ITarot[] | null = null;
 
-  return keys.map((item) => {
-    const picBuffer = fs.readFileSync(tarotImages[item]);  // 直接使用导入的图片
+export async function getTarotData(): Promise<ITarot[]> {
+  if (cachedTarotData) return cachedTarotData;
 
-    return {
-      picBuffer,
-      upText: upTexts[item],
-      reversedText: reversedTexts[item],
-      name: torotNames[item],
-    };
-  });
-};
+  const tarotData = await Promise.all(
+    Object.keys(tarotNames).map(async (key) => ({
+      picBuffer: await fs.readFile(path.join(__dirname, tarotImgs[key])),
+      upText: upTexts[key],
+      reversedText: reversedTexts[key],
+      name: tarotNames[key],
+    }))
+  );
 
-export default tarotData;
+  cachedTarotData = tarotData;
+  return tarotData;
+}

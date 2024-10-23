@@ -1,19 +1,21 @@
+import crypto from 'crypto';
+
 /** 获取正逆位 */
-export const upOrReverse = (): boolean => {
-  const options = [true, false];
-  for (let i = options.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [options[i], options[j]] = [options[j], options[i]];
-  }
-  return options[0];
-}
+export const isUpright = (): boolean => crypto.randomBytes(1)[0] < 128;
 
 /** 随机抽牌 */
-export const drawCards = (): number => {
-  const cards = Array.from({ length: 22 }, (_, i) => i);
-  for (let i = cards.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [cards[i], cards[j]] = [cards[j], cards[i]];
+export const drawCard = (): number => {
+  const randomBytes = crypto.randomBytes(4);
+  const randomNumber = randomBytes.readUInt32BE(0);
+  return randomNumber % 22;
+};
+
+/** 洗牌函数 */
+export function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(crypto.randomBytes(4).readUInt32BE(0) / (0xffffffff + 1) * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  return cards[0];
+  return shuffled;
 }
