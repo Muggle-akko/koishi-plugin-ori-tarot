@@ -1,6 +1,6 @@
 import { Context, Schema, h } from "koishi";
 import { getTarotData } from "./data";
-import { isUpright, shuffleArray } from "./utils";
+import { isUpright } from "./utils";
 
 export const name = "bili-tarot";
 
@@ -16,7 +16,12 @@ export function apply(ctx: Context) {
 
     // 如果牌组为空,重新洗牌
     if (shuffledDeck.length === 0) {
-      shuffledDeck = shuffleArray([...Array(22).keys()]);
+      shuffledDeck = [...Array(22).keys()];
+      // 使用 Fisher-Yates 洗牌算法
+      for (let i = shuffledDeck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
+      }
     }
 
     // 从洗好的牌组中抽取一张牌

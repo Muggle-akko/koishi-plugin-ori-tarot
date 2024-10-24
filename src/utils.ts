@@ -1,21 +1,17 @@
 import crypto from 'crypto';
 
 /** 获取正逆位 */
-export const isUpright = (): boolean => crypto.randomBytes(1)[0] < 128;
+export const isUpright = (): boolean => crypto.randomInt(0, 2) === 0;
 
 /** 随机抽牌 */
-export const drawCard = (): number => {
-  const randomBytes = crypto.randomBytes(4);
-  const randomNumber = randomBytes.readUInt32BE(0);
-  return randomNumber % 22;
-};
+export const drawCard = (): number => crypto.randomInt(0, 22);
 
 /** 洗牌函数 */
 export function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(crypto.randomBytes(4).readUInt32BE(0) / (0xffffffff + 1) * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  // 使用 Fisher-Yates 洗牌算法
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
-  return shuffled;
+  return array;
 }
