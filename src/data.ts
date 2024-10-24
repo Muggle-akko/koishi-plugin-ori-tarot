@@ -2,10 +2,10 @@ import path from 'path';
 import fs from 'node:fs/promises';
 
 // 导入 JSON 文件
-import tarotNames from './assets/name.json';
-import upTexts from './assets/upText.json';
-import reversedTexts from './assets/reversedText.json';
-import tarotImgs from './assets/picUrl.json';
+import tarotNames from './name.json';
+import upTexts from './upText.json';
+import reversedTexts from './reversedText.json';
+import tarotImgs from './picUrl.json';
 
 export interface ITarot {
   /** 图片 Buffer */
