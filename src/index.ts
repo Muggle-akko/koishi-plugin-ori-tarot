@@ -12,6 +12,8 @@ export function apply(ctx: Context) {
   let shuffledDeck: number[] = [];
 
   ctx.command("塔罗牌").action(async ({ session }) => {
+    if (!session) return '无法获取会话信息';
+
     const data = await getTarotData();
 
     // 如果牌组为空,重新洗牌

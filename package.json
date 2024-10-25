@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-bili-tarot",
   "description": "Bilibili 塔罗牌抽取",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -22,6 +22,9 @@
     "bili",
     "tarot"
   ],
+  "peerDependencies": {
+    "koishi": "^4.17.2"
+  },
   "devDependencies": {
     "@sprout2000/esbuild-copy-plugin": "^1.1.16",
     "esbuild": "^0.24.0"
