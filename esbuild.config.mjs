@@ -9,6 +9,7 @@ const options = {
     outdir: 'dist',
     minify: true,
     platform: 'node',
+    packages: 'external',
     plugins: [
         copyPlugin({
             src: './src/assets',
