@@ -4,7 +4,7 @@
   "version": "1.0.8",
   "main": "lib/index.js",
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
     "build": "node esbuild.config.mjs"
