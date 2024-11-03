@@ -6,14 +6,14 @@ const { copyPlugin } = copyPluginPkg
 const options = {
     entryPoints: ['./src/index.ts'],
     bundle: true,
-    outdir: 'dist',
+    outdir: 'lib',
     minify: true,
     platform: 'node',
     packages: 'external',
     plugins: [
         copyPlugin({
             src: './src/assets',
-            dest: './dist/assets',
+            dest: './lib/assets',
         }),
     ],
 }
