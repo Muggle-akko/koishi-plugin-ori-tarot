@@ -3,6 +3,7 @@
   "description": "Bilibili 塔罗牌抽取",
   "version": "1.0.8",
   "main": "lib/index.js",
+  "type": "module",
   "files": [
     "lib"
   ],
